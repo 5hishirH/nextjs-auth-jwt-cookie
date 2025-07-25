@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setError(null);
     return new Promise((resolve, reject) => {
       privateApi
-        .post("/api/v0/auth/login", credentials)
+        .post("/api/auth/login", credentials)
         .then(() => {
           setAuthStatus("authenticated");
           resolve();
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return new Promise((resolve, reject) => {
       // Step 1: Attempt to register the new user
       privateApi
-        .post("/api/v0/auth/register", data)
+        .post("/api/auth/register", data)
         .then(() => {
           // Step 2: If registration is successful, automatically log them in
           // This reuses the existing login logic.
@@ -138,7 +138,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setAuthStatus("loading");
     setError(null);
     privateApi
-      .post("/api/v0/auth/logout")
+      .post("/api/auth/logout")
       .then(() => {
         setAuthStatus("unauthenticated");
       })

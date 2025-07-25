@@ -65,7 +65,7 @@ export default function DashboardPage() {
         setError(null);
         try {
           // 2. Using the new, specific API endpoint
-          const response = await privateApi.get("/api/v0/auth/profile");
+          const response = await privateApi.get("/api/auth/profile");
           const data: ApiResponse = response.data;
 
           if (data.success) {
